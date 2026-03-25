@@ -65,7 +65,7 @@ Python Dashboard (Live visualization)
 
 ### FFT Frequency Fingerprints
 
-![FFT Analysis](FFT WELD SIGNAL.png)
+![FFT Analysis](FFT%20WELD%20SIGNAL.png)
 
 ---
 
