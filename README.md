@@ -61,11 +61,11 @@ Python Dashboard (Live visualization)
 
 ### All 4 Defects Detected Successfully
 
-![Detection Results](All_defect.png)
+![Detection Results](weld_defect_detection_results.png)
 
 ### FFT Frequency Fingerprints
 
-![FFT Analysis](FFT_WELD_SIGNAL.png)
+![FFT Analysis](FFT WELD SIGNAL.png)
 
 ---
 
@@ -174,11 +174,11 @@ Hochschule Coburg, Germany
 
 ## 📄 License
 
-MIT License — Free to use for educational purposes.
+License — Free to use for educational purposes.
 
 ---
 
-*This project is part of MSc coursework and 
+*This project is part of M.Engg coursework and 
 internship preparation for automation industry 
 positions at companies like Siemens, Honeywell, 
 and ABB.*
