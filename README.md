@@ -156,7 +156,7 @@ Detection rate : 100% on synthetic data
 
 ## 🖥️ SCADA Dashboard
 
-![SCADA Dashboard](dashboard.png)
+![SCADA Dashboard](dashboard_screenshot.png)
 
 Built a professional dark-mode HMI dashboard 
 using Python Streamlit + Plotly:
