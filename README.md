@@ -80,6 +80,8 @@ Python Dashboard (Live visualization)
 | Dashboard | Python (PySerial, Matplotlib) |
 | Protocol | UART 115200 baud |
 | Sample Rate | 10 kHz |
+| SCADA Dashboard | Python + Streamlit + Plotly |
+| Data Logging | Pandas + CSV (timestamped) |
 
 ---
 
@@ -150,6 +152,49 @@ Detection Algorithm Performance:
 Sample rate    : 10,000 Hz
 Window size    : 1000 samples (100ms)
 Detection rate : 100% on synthetic data
+---
+
+## 🖥️ SCADA Dashboard
+
+![SCADA Dashboard](dashboard_screenshot.png)
+
+Built a professional dark-mode HMI dashboard 
+using Python Streamlit + Plotly:
+
+- Live voltage gauge with color zones
+- Real-time trend chart with fault thresholds
+- 4 defect indicators (ACTIVE / CLEAR)
+- Timestamped event log
+- CSV data export
+```bash
+pip install streamlit plotly pandas
+streamlit run weld_dashboard.py
+```
+
+---
+
+## 📋 Project Journal
+
+### Day 1 — March 27, 2026
+
+**Achievements 🏆**
+- MATLAB signal generation — 5 weld scenarios
+- FFT analysis — defect frequency fingerprints
+- Moving RMS detection — all 4 defects detected
+- STM32CubeIDE project + C firmware ready
+- Professional SCADA dashboard built from scratch
+
+**Challenges Solved 🚧**
+- Resolved Streamlit auto-refresh UI resets
+  using session state
+- Fixed CSV logging bugs (Windows file extensions)
+- Validated detection algorithm directly in MATLAB
+  bypassing Simulink scope issues
+
+**Workarounds 🛑**
+- No physical PLC → Python simulation loop
+- No paid licenses (Siemens, CODESYS, TwinCAT) →
+  100% open-source solution
 
 ## 🎯 Applications
 
