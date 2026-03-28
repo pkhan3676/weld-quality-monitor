@@ -164,18 +164,18 @@ in lab using professional test equipment:
 - All 4 defect signatures clearly distinguishable ✓
 
 ### 1. Lab Setup
-![setup](https://github.com/user-attachments/assets/77a8ae76-2f45-4ad3-938d-ec6a60958880)
+![setup](https://github.com/user-attachments/assets/2df034da-acf4-4a50-b4de-b04b63495035)
+
+### 2. spatter
+![spatter](https://github.com/user-attachments/assets/8c062baa-8ab8-4a03-adc9-ab9f0a8beb08)
 
 
-### 2. ![spatter](https://github.com/user-attachments/assets/70a07c69-3b82-4930-87e5-9965bc6863f6)
-Spatter Signal
-
-### 3. Arc Instability Signal  
-![arc_instability](https://github.com/user-attachments/assets/3c8b834a-60ef-4323-9772-a078c06bd1d3)
-
+### 3. Arc Instability Signal
+ ![arc_instability](https://github.com/user-attachments/assets/11b24f24-a648-4385-bbd2-efe1e485a544)
 
 ### 4. Porosity Signal
-![porosity](https://github.com/user-attachments/assets/8ac82352-b1a1-4cfa-a3e1-dfc743c76c1d)
+![porosity](https://github.com/user-attachments/assets/026e6bb2-7e18-4af6-90db-2f8e23cdf1eb)
+
 
 
 ## 📈 Results Summary
