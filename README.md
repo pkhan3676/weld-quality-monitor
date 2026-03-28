@@ -140,6 +140,41 @@ python weld_dashboard.py --simulate
 3. Build → Flash to STM32F407
 4. Connect UART → run dashboard
 
+## 🔬 Lab Validation — Rigol DG4162 + DS2202A
+
+MATLAB-generated weld signals physically verified
+in lab using professional test equipment:
+
+**Equipment used:**
+- Rigol DG4162 — Function/Arbitrary Waveform Generator
+- Rigol DS2202A — Digital Oscilloscope (200MHz, 2GSa/s)
+- Optical bench table — HS Coburg Lab
+
+**What was verified:**
+| Signal | Verified | Oscilloscope Reading |
+|--------|---------|---------------------|
+| Normal MIG weld | ✅ | Clean 120Hz ripple |
+| Spatter defect | ✅ | Random current spikes visible |
+| Arc instability | ✅ | High noise + 18Hz oscillation |
+| Porosity defect | ✅ | Periodic voltage dips |
+
+**Signal parameters confirmed:**
+- Voltage range: 0 – 3.3V ✓ (STM32 ADC compatible)
+- Sample rate: 10 kHz ✓
+- All 4 defect signatures clearly distinguishable ✓
+
+### Setup
+![Lab Setup](lab_validation/setup.jpg)
+
+### Spatter Signal
+![Spatter](lab_validation/spatter.jpg)
+
+### Arc Instability Signal  
+![Arc Instability](lab_validation/arc_instability.jpg)
+
+### Porosity Signal
+![Porosity](lab_validation/porosity.jpg)
+
 ## 📈 Results Summary
 ```
 Detection Algorithm Performance:
