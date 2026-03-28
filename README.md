@@ -164,17 +164,16 @@ in lab using professional test equipment:
 - All 4 defect signatures clearly distinguishable ✓
 
 ### 1. Lab Setup
-![setup](https://github.com/user-attachments/assets/2df034da-acf4-4a50-b4de-b04b63495035)
+<img src="https://raw.githubusercontent.com/pkhan3676/weld-quality-monitor/main/lab_validation/setup.jpg" width="600">
 
-### 2. spatter
-![spatter](https://github.com/user-attachments/assets/8c062baa-8ab8-4a03-adc9-ab9f0a8beb08)
-
+### 2. Spatter Signal
+<img src="https://raw.githubusercontent.com/pkhan3676/weld-quality-monitor/main/lab_validation/spatter.jpg" width="600">
 
 ### 3. Arc Instability Signal
- ![arc_instability](https://github.com/user-attachments/assets/11b24f24-a648-4385-bbd2-efe1e485a544)
+<img src="https://raw.githubusercontent.com/pkhan3676/weld-quality-monitor/main/lab_validation/arc_instability.jpg" width="600">
 
 ### 4. Porosity Signal
-![porosity](https://github.com/user-attachments/assets/026e6bb2-7e18-4af6-90db-2f8e23cdf1eb)
+<img src="https://raw.githubusercontent.com/pkhan3676/weld-quality-monitor/main/lab_validation/porosity.jpg" width="600">
 
 
 
