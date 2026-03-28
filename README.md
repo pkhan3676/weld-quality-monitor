@@ -163,17 +163,17 @@ in lab using professional test equipment:
 - Sample rate: 10 kHz ✓
 - All 4 defect signatures clearly distinguishable ✓
 
-### Setup
-![Lab Setup](lab_validation/setup.jpg)
+### 1. Lab Setup
+<img src="./lab_validation/setup.jpg" alt="Lab Setup" width="600">
 
-### Spatter Signal
-![Spatter](lab_validation/spatter.jpg)
+### 2. Spatter Signal
+<img src="./lab_validation/spatter.jpg" alt="Spatter Signal" width="600">
 
-### Arc Instability Signal  
-![Arc Instability](lab_validation/arc_instability.jpg)
+### 3. Arc Instability Signal  
+<img src="./lab_validation/arc_instability.jpg" alt="Arc Instability Signal" width="600">
 
-### Porosity Signal
-![Porosity](lab_validation/porosity.jpg)
+### 4. Porosity Signal
+<img src="./lab_validation/porosity.jpg" alt="Porosity Signal" width="600">
 
 ## 📈 Results Summary
 ```
