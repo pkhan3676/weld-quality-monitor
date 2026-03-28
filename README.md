@@ -164,7 +164,7 @@ in lab using professional test equipment:
 - All 4 defect signatures clearly distinguishable ✓
 
 ### 1. Lab Setup
-<img src="./lab_validation/setup.jpg" alt="Lab Setup" width="600">
+![Lab Setup](https://github.com/pkhan3676/weld-quality-monitor/blob/main/lab_validation/setup.jpg?raw=true)
 
 ### 2. Spatter Signal
 <img src="./lab_validation/spatter.jpg" alt="Spatter Signal" width="600">
