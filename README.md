@@ -3,7 +3,7 @@ Real-time weld defect detection    using MATLAB + STM32
 # 🔧 Weld Quality Monitor — MATLAB + STM32
 
 ![MATLAB](https://img.shields.io/badge/MATLAB-R2025b-orange)
-![STM32](https://img.shields.io/badge/STM32-F407ZGT6-blue)
+![STM32](https://img.shields.io/badge/STM32-F4446RE-blue)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
@@ -11,8 +11,7 @@ Real-time weld defect detection    using MATLAB + STM32
 > MATLAB signal processing algorithms deployed 
 > on STM32 microcontroller.
 > 
-> **Author:** Prince Khan | MSc Analytical 
-> Instruments, Measurement & Sensor Technology  
+> **Author:** Prince Khan | M.Engineering Analytical Instruments, Measurement & Sensor Technology  
 > **University:** Hochschule Coburg, Germany
 
 ---
@@ -54,6 +53,8 @@ STM32F407 Deployment (C code)
         ↓
 Python Dashboard (Live visualization)
 ```
+Phase-2
+Physical Hardware Validation → RIGOL DG4162 (Real Signal) → STM32F446RE → Python Streamlit Dashboard
 
 ---
 
@@ -82,6 +83,10 @@ Python Dashboard (Live visualization)
 | Sample Rate | 10 kHz |
 | SCADA Dashboard | Python + Streamlit + Plotly |
 | Data Logging | Pandas + CSV (timestamped) |
+| Real Hardware    | STM32F446RE Nucleo       |
+| Signal Source    | RIGOL DG4162 Function Gen|
+| Live Dashboard   | Streamlit + Plotly       |
+| Sample Rate      | 100 Hz (hardware)        |
 
 ---
 
@@ -148,7 +153,8 @@ in lab using professional test equipment:
 **Equipment used:**
 - Rigol DG4162 — Function/Arbitrary Waveform Generator
 - Rigol DS2202A — Digital Oscilloscope (200MHz, 2GSa/s)
-- Optical bench table — HS Coburg Lab
+- STM32F446RE Microcontroller
+- Optical bench table — USST, Lab
 
 **What was verified:**
 | Signal | Verified | Oscilloscope Reading |
@@ -236,6 +242,26 @@ streamlit run weld_dashboard.py
 - **Honeywell** — Process monitoring systems
 - **ABB** — Robotic welding quality control
 - **Bosch** — Automotive manufacturing QA
+
+- ## Day 2 — March 30, 2026
+
+### Achievements 🏆
+- Migrated from STM32F407 to STM32F446RE Nucleo
+- Physical hardware validation with RIGOL DG4162
+- All 4 faults verified on real hardware
+- Live Streamlit dashboard with pyserial
+- Discovered & fixed 50 Ohm impedance issue
+
+### Hardware Validated ✅
+| Test | Settings | Result |
+|------|----------|--------|
+| Normal | 150mVpp, 1.65V, HiZ | SP:0 BU:0 IN:0 PO:0 |
+| Burn+Instab | 1.5Vpp, 1.5V | BU:1 IN:1 |
+| Porosity | 200mVpp, 0.3V | PO:1 |
+
+### Key Learning
+- Function generator must be set to HighZ 
+  (50 Ohm causes voltage mismatch with STM32 ADC)
 
 ---
 
