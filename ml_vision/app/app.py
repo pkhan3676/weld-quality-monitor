@@ -35,7 +35,8 @@ CLASS_NAMES = [
 # -----------------------------
 # Model path
 # -----------------------------
-MODEL_PATH = Path("resnet18_weld_finetuned_best.pth")
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "resnet18_weld_finetuned_best.pth"
 
 # -----------------------------
 # Device
