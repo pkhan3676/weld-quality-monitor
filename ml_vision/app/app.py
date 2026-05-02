@@ -37,9 +37,10 @@ with st.sidebar:
     st.markdown("""
     - **Model:** ResNet-18 (Fine-tuned)
     - **Dataset:** RIAWELC
-    - **Test Accuracy:** 98.69%
+    - **Test Accuracy:** 98.69% ⚠️
     - **Classes:** 4
     """)
+    st.caption("⚠️ In-distribution accuracy on RIAWELC controlled dataset. Real-world performance may vary.")
 
     st.subheader("📋 Defect Types")
     st.markdown("""
@@ -119,24 +120,43 @@ model = load_model()
 # ======================================================
 # Input Validation
 # ======================================================
-def is_reasonable_input(img: Image.Image) -> bool:
+def is_reasonable_input(img: Image.Image) -> tuple:
+    """
+    Returns (is_valid, reason)
+    Strategy: Minimal reliable checks only.
+    Weld X-rays are grayscale — colored inputs are clearly wrong.
+    Trust confidence threshold for borderline cases.
+    """
     np_img = np.array(img)
+    gray = np_img if len(np_img.shape) == 2 else np.mean(np_img, axis=2)
 
-    # Reject colored images
+    # Check 1: Reject colored images (photos, colored charts, screenshots)
+    # Training curves, bar charts, colored UI → color_diff > 15
+    # Grayscale weld X-rays → color_diff < 10
     if len(np_img.shape) == 3:
         r = np_img[:, :, 0].astype(float)
         g = np_img[:, :, 1].astype(float)
         b = np_img[:, :, 2].astype(float)
         color_diff = np.mean(np.abs(r - g)) + np.mean(np.abs(r - b))
-        if color_diff > 10:
-            return False
+        if color_diff > 15:
+            return False, f"Colored image detected (color score: {color_diff:.1f}). Please upload a grayscale weld X-ray."
 
-    # Reject flat/empty images
-    gray = np_img if len(np_img.shape) == 2 else np.mean(np_img, axis=2)
+    # Check 2: Reject completely flat/blank images
     if np.std(gray) < 2:
-        return False
+        return False, "Image has no content (blank or uniform color)"
 
-    return True
+    # Check 3: Reject chart/document with white background
+    # Training curves, bar charts, documents have >95% white pixels
+    # Real weld X-rays: typically 85-93% white (gradual intensity variation)
+    white_ratio = np.mean(gray > 240)
+    if white_ratio > 0.95:
+        return False, f"Image has too much white background ({white_ratio*100:.0f}%) — likely a chart or document, not a weld X-ray"
+
+    # Check 4: Reject mostly-black images (dark UI screenshots)
+    if np.mean(gray < 10) > 0.80:
+        return False, "Image is almost completely black (dark screenshot?)"
+
+    return True, "Valid"
 
 # ======================================================
 # Preprocessing
@@ -254,10 +274,12 @@ def run_inference(image: Image.Image, filename: str):
     """Run full inference pipeline on one image"""
 
     # Validation
-    if not is_reasonable_input(image):
+    is_valid, reason = is_reasonable_input(image)
+    if not is_valid:
         st.error(
-            "❌ **INVALID INPUT** — This image does not look like a weld radiographic X-ray.\n\n"
-            "Please upload a grayscale weld X-ray image."
+            f"❌ **INVALID INPUT** — {reason}\n\n"
+            "Please upload a grayscale weld radiographic X-ray image.\n\n"
+            "💡 *Tip: Charts, screenshots, photos, and documents are not valid inputs.*"
         )
         return
 
