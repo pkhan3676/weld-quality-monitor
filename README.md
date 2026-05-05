@@ -188,6 +188,18 @@ streamlit run app.py
 
 > Make sure `resnet18_weld_finetuned_best.pth` is in the same folder as `app.py`
 
+
+
+## Running with Docker
+
+The Streamlit weld defect classification app can also be run inside Docker.
+
+```bash
+cd ml_vision/app
+docker build -t weld-monitor-app .
+docker run -p 850
+
+
 ---
 
 ## Folder Structure
