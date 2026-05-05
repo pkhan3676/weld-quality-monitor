@@ -184,11 +184,30 @@ pip install -r requirements.txt
 
 # Run app
 streamlit run app.py
-```
+
+## Running the Streamlit App with Docker
+
+The Streamlit weld defect classification app can also be run inside a Docker container.  
+This makes the app easier to reproduce on another machine without manually setting up the Python environment.
+
+### Build the Docker image
+
+From the app directory:
+
+```bash
+cd ml_vision/app
+docker build -t weld-monitor-app .
+
+docker run -p 8501:8501 weld-monitor-app
 
 > Make sure `resnet18_weld_finetuned_best.pth` is in the same folder as `app.py`
 
+Notes
 
+The Docker version runs the same Streamlit app used for weld defect classification.
+The app supports weld radiographic image upload, prediction, confidence display, probability visualization, and PASS / FAIL / UNCERTAIN decision logic.
+The model file must be available inside the app directory or correctly referenced by the app code.
+This Docker setup is intended for reproducible local deployment and demonstration.
 
 ## Running with Docker
 
