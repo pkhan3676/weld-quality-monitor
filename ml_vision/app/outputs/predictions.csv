@@ -1,0 +1,8 @@
+Timestamp,Filename,Predicted_Class,Confidence_%,Result,Crack_%,Lack_of_penetration_%,No_defect_%,Porosity_%
+2026-05-05 14:33:50,sample_lop.png,Lack_of_penetration,100.00,FAIL,0.00,100.00,0.00,0.00
+2026-05-05 14:33:56,sample_porosity.png,Porosity,100.00,FAIL,0.00,0.00,0.00,100.00
+2026-05-05 15:48:06,W0003_0038.png,Porosity,95.83,FAIL,0.10,3.97,0.10,95.83
+2026-05-05 15:48:26,W0003_0068.png,Crack,93.23,FAIL,93.23,3.85,0.05,2.88
+2026-05-05 15:48:37,W0003_0026.png,Lack_of_penetration,45.91,UNCERTAIN,27.29,45.91,0.10,26.70
+2026-05-05 15:52:58,W0003_0031.png,Porosity,91.25,FAIL,0.01,8.74,0.00,91.25
+2026-05-05 15:53:09,sample_nodefect.png,No_defect,99.97,PASS,0.00,0.00,99.97,0.03
