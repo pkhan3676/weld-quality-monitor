@@ -184,11 +184,72 @@ pip install -r requirements.txt
 
 # Run app
 streamlit run app.py
-```
+
+## Running the Streamlit App with Docker
+
+The Streamlit weld defect classification app can also be run inside a Docker container.  
+This makes the app easier to reproduce on another machine without manually setting up the Python environment.
+
+### Build the Docker image
+
+From the app directory:
+
+```bash
+cd ml_vision/app
+docker build -t weld-monitor-app .
+
+docker run -p 8501:8501 weld-monitor-app
 
 > Make sure `resnet18_weld_finetuned_best.pth` is in the same folder as `app.py`
 
+Notes
+
+The Docker version runs the same Streamlit app used for weld defect classification.
+The app supports weld radiographic image upload, prediction, confidence display, probability visualization, and PASS / FAIL / UNCERTAIN decision logic.
+The model file must be available inside the app directory or correctly referenced by the app code.
+This Docker setup is intended for reproducible local deployment and demonstration.
+
+## Running with Docker
+
+The Streamlit weld defect classification app can also be run inside Docker.
+
+```bash
+cd ml_vision/app
+docker build -t weld-monitor-app .
+docker run -p 850
+## Grafana Monitoring Extension
+
+A lightweight Grafana monitoring dashboard was added as an engineering extension.  
+The Streamlit app appends prediction results to:
+
+```text
+ml_vision/app/outputs/predictions.csv
+Timestamp
+Filename
+Predicted_Class
+Confidence_%
+Result
+Crack_%
+Lack_of_penetration_%
+No_defect_%
+Porosity_%
+Grafana reads this CSV using the Infinity data source plugin and displays prediction history.
+
+cd ml_vision/app/outputs
+python -m http.server 9000
+
+Start Grafana:
+docker run -d -p 3000:3000 --name weld-grafana ^
+  -e GF_INSTALL_PLUGINS=yesoreyeram-infinity-datasource ^
+  -v "%cd%:/var/lib/grafana/predictions" ^
+  grafana/grafana
+Open Grafana: http://localhost:3000
+
+CSV URL inside Grafana
+http://host.docker.internal:9000/predictions.csv
+
 ---
+
 
 ## Folder Structure
 
